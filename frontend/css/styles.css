@@ -1,0 +1,1491 @@
+
+/* Estilos generales */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+label {
+    color: #333;
+    font-weight: 500;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+::placeholder {
+    color: #9b9b9b;
+}
+
+/* Textos */
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.thin {
+    font-weight: 400;
+}
+
+.negrita {
+    font-weight: bold;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+/* Paleta de colores */
+
+.red {
+    color: #E86161;
+}
+
+.white {
+    color: #f4f4f9;
+}
+
+/* Funcionamiento general */
+
+.off {
+    display: none;
+}
+
+/* Loading page ------------------------------------------------- */
+
+#loading_page {
+    display: flex;
+}
+
+#loading_page, #login_page, #main_page {
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.red_square {
+    width: 100%;
+    height: 40px;
+    background-color: #E86161;
+}
+
+.thin {
+    height: 20px;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+#message_loading {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-bottom: 80px;
+    font-size: 1em;    
+}
+
+#logo {
+    width: 40%;
+    margin: auto;
+    max-width: 280px;
+}
+
+#text_logo {
+    width: 30%;
+    max-width: 280px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    margin-top: 80px;
+}
+
+#box_dots {
+    display: flex;
+    gap: 5px;
+    margin: auto;
+    
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 100%;
+    transition: all 0.5s;
+}
+
+/* Login page --------------------------------------------------- */
+
+#logos_login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 20px;
+}
+
+#login_page {
+    display: none;
+    align-items: center;
+}
+
+#content_login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 70px;
+}
+
+#logo_small {
+    width: 56%;
+    margin: auto;
+}
+
+#logo_words {
+    width: 50%;
+    margin: auto;
+    max-width: 150px;
+}
+
+/* Formulario Login */
+
+#formulario_login {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 360px;
+}
+
+#formulario_login h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#formulario_login ::placeholder {
+    color: #777777;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0px;
+    border: 1px solid #777777;
+    border-radius: 5px;
+}
+
+button {
+    width: 90%;
+    padding: 10px;
+    background-color: #E86161;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+button:hover {
+    background-color: #cf5757;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Main page  ------------------------------------------------------- */
+
+#main_page {
+    display: flex;
+}
+
+#content_main {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    position: fixed;
+    z-index: 2;
+    flex-direction: column;
+    width: 100%;
+}
+
+#header_blue {
+    display: flex;
+    padding: 12px 20px;
+    background-color: #C2C2C2;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 3px rgb(170, 170, 170);
+}
+
+#logo_header {
+    width: 46px;
+    height: 46px;
+}
+
+#foto_perfil {
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+#foto_perfil img {
+    width: 55%;
+}
+
+#saludo_inicio {
+    margin-bottom: 10px;
+}
+
+#buscador {
+    width: 70%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 5px 14px;
+    border-radius: 30px;
+    background-color: #333;
+}
+
+#buscador img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#buscador p {
+    font-weight: 500;
+    color: #C2C2C2;
+}
+
+/* Últimas valoraciones */
+
+#txt_ultimas {
+    font-size: 16px;
+    padding: 0px 0px 40px 0px;
+}
+
+#ultimas_valoraciones {
+    display: grid;
+    justify-content: flex-start;
+    grid-template-columns: 48% 48%;
+    gap: 4%;
+    list-style: none;
+}
+
+.film_img {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 30vh;
+    border-radius: 5px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 1);
+}
+
+.film_img h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    margin-top: -6px;
+}
+
+.film_img img {
+    width: 30%;
+    height: fit-content;
+    position: absolute;
+    margin-top: -14px;
+}
+
+.film_title {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.lista_vacia {
+    display: none;
+    width: 100%;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#aviso_coleccion_vacia {
+    margin-top: 70px;
+}
+
+.avisos_lista_vacia {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #C2C2C2;
+    border-radius: 10px;
+}
+
+.btns_redirect_add {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e98c8c;
+    border-radius: 10px;
+    width: fit-content;
+    float: right;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.btns_redirect_add h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.lista_vacia p {
+    font-weight: 500;
+}
+
+.lista_vacia img {
+    opacity: 0.3;
+}
+
+/* Blank space */
+
+.blank_space {
+    width: 100%;
+    height: 200px;
+}
+
+/* Footer */
+
+footer {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer_blue {
+    display: flex;
+    width: 100%;
+    background-color: #C2C2C2;
+    justify-content: center;
+}
+
+.menu_inferior {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+
+.menu_inferior img {
+    width: 40%;
+    max-width: 50px;
+}
+
+#decoration_bar {
+    width: 100%;
+    height: 5px;
+    background-color: #C2C2C2;
+}
+
+#select_bar {
+    width: 100%;
+    height: 6px;
+    background-color: #9b9b9b;
+}
+
+#select_bar div {
+    width: 15%;
+    border-radius: 5px;
+    height: 6px;
+    background-color: #333;
+    margin-left: 4%;
+    transition: all 0.5s;
+}
+
+/* Cerrar sesión */
+
+#confirmacion_cierre {
+    position: fixed;
+    width: 80%;
+    height: fit-content;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.6);
+}
+
+#confirmacion_cierre h2 {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #9b9b9b;
+}
+
+#confirmacion_cierre h3 {
+    font-size: 18px;
+}
+
+#confirmacion_cierre section {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0px;
+}
+
+#confirmacion_cierre section div {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    text-align: center;
+    line-height: normal;
+}
+
+#btn_cerrar_sesion {
+    background-color: #E86161;
+}
+
+#btn_volver {
+    background-color: #ccc;
+}
+
+/* Add Page  ------------------------------------------------------- */
+
+#content_add {
+    display: none;
+    margin-top: 90px;
+    padding: 20px;
+}
+
+#titulo_add {
+    margin-bottom: 10px;
+}
+
+#txt_vamos {
+    font-size: 16px;
+    padding: 0px 0px 40px 0px;
+}
+
+#formulario_pelicula input {
+    width: 100%;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 2px solid #E86161;
+    margin-bottom: 24px;
+}
+
+#formulario_pelicula label {
+    font-size: 16px;
+    width: 100%;
+}
+
+#formulario_pelicula #imagen {
+    border: none;
+}
+
+#btn_guardar {
+    width: 100%;
+    border-radius: 5px;
+    height: 40px;
+    font-weight: 600;
+}
+
+/* Colección Page  ------------------------------------------------------- */
+
+#content_collection {
+    display: none;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.flex_box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+#num_peliculas {
+    font-weight: 500;
+    color: #9b9b9b;
+}
+
+#titulo_biblioteca {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+#txt_magnifica {
+    font-size: 16px;
+    padding: 0px 0px 40px 0px;
+}
+
+#mi_coleccion {
+    width: 100%;
+}
+
+.pelicula_guardada {
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    display: flex;
+    background-color: #333;
+    gap: 20px;
+    margin-bottom: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#portada {
+    width: 30%;
+    height: auto;
+    max-height: 160px;
+    border-radius: 10px;
+}
+
+.titulo_pelicula_guardada {
+    color: #f4f4f9;
+    font-weight: 600;
+}
+
+.info_pelicula_guardada {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.direccion_pelicula_guardada {
+    margin-bottom: 20px;
+}
+
+.box_nota {
+    background-color: #f4f4f9;
+    padding: 20px 10px;
+    max-height: 26px;
+    margin: 5px 0px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_nota h2 {
+    font-size: 22px;
+}
+
+.separador_info {
+    border: none;
+    border-top: 1px solid #f4f4f9;
+    margin-bottom: 10px;
+}
+
+.delete_btn {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    right: 0;
+    bottom: 0;
+}
+
+/* Media Queries */
+
+/* Dispositivos muy pequeños */
+
+@media (max-width: 360px) {
+
+    /* Loading page */
+
+    body #message_loading {
+        font-size: 12px;
+    }
+
+    #formulario_login {
+        width: 80%;
+        margin: auto;
+    }
+
+    #formulario_login button {
+        width: 90%;
+    }
+
+    /* Main page */
+
+    #ultimas_valoraciones {
+        grid-template-columns: none;
+        justify-content: center;
+    }
+
+    .film_img {
+        width: 90%;
+        margin: auto;
+        height: 34vh;
+        margin-bottom: 14px;
+    }
+
+    .film_title {
+        width: 90%;
+        text-align: center;
+    }
+
+    #blank_space_inicio {
+        height: 300px;
+    }
+
+    #buscador {
+        width: 64%;
+    }
+
+    /* Collection page */
+
+    #portada {
+        width: 34%;
+        height: 142px;
+        align-self: center;
+    }
+
+    .pelicula_guardada {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box_nota {
+        border-radius: 10px;
+        padding: 18px 10px;
+        background-color: transparent;
+        border: 2px solid #E86161;
+    }
+
+    .box_nota h2 {
+        font-size: 18px;
+        color: white;
+    }
+} 
+
+/* Dispositivos pequeños */
+
+@media (min-width: 361px) and (max-width: 480px) {
+
+    /* Loading page */
+
+    .red_square {
+        height: 30px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    body #message_loading {
+        font-size: 15px;
+        margin-bottom: 80px;   
+    }
+
+    /* Login page */
+
+    #logo_small {
+        width: 50%;
+    }
+
+    #content_login {
+        gap: 60px;
+    }
+
+    #formulario_login {
+        width: 80%;
+        margin: auto;
+    }
+
+    /* Main page */
+
+    #ultimas_valoraciones {
+        justify-content: space-around;
+        grid-template-columns: 45% 45%;
+    }
+
+    .film_title {
+        font-size: 13px;
+    }
+
+    /* Collection page */
+
+    #portada {
+        height: 150px;
+    }
+}
+
+/* Dispositivos medianos */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    /* Loading page */
+
+    body #message_loading {
+        font-size: 20px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    #text_logo {
+        width: 24%;
+    }
+
+    /* Login page */
+
+    #formulario_login {
+        width: 60vw;
+    }
+
+    /* Main page */
+    
+    #content_main {
+        padding: 30px 40px;
+    }
+
+    #saludo_inicio {
+        font-size: 26px;
+    }
+
+    #txt_ultimas {
+        font-size: 18px;
+    }
+
+    .icon_txt {
+        font-size: 18px;
+    }
+
+    #ultimas_valoraciones {
+        grid-template-columns: 30% 30% 30%;
+    }
+
+    .film_title {
+        font-size: 16px;
+    }
+
+    #logo_header {
+        width: 60px;
+        height: 60px;
+    }
+
+    #foto_perfil {
+        width: 56px;
+        height: 56px;
+    } 
+
+    #buscador {
+        height: 36px;
+        width: 78%;
+    }
+
+    /* Add page */
+
+    #titulo_add {
+        font-size: 26px;
+    }
+
+    #txt_vamos {
+        font-size: 18px;
+    }
+
+    #content_add {
+        padding: 40px 40px;
+    }
+
+    #formulario_pelicula label {
+        font-size: 16px;
+    }
+
+    #formulario_pelicula ::placeholder {
+        font-size: 14px;
+    }
+
+    #btn_guardar {
+        width: 30%;
+        height: 46px;
+    }
+
+    /* Collection page */
+
+    #content_collection {
+        padding: 40px 40px;
+    }
+
+    #titulo_biblioteca {
+        font-size: 26px;
+    }
+
+    #txt_magnifica {
+        font-size: 18px;
+    }
+
+    #num_peliculas {
+        font-size: 18px;
+    }
+
+    #portada {
+        height: 230px;
+        max-height: 230px;
+    }
+
+    .info_pelicula_guardada span, .info_pelicula_guardada p {
+        font-size: 16px;
+    }
+
+    .titulo_pelicula_guardada {
+        margin-bottom: 10px;
+        font-size: 18px !important;
+    }
+
+    .year_pelicula_guardada, .genero_pelicula_guardada, .pais_pelicula_guardada, .direccion_pelicula_guardada {
+        margin-bottom: 10px;
+    }
+
+    .separador_info {
+        margin-bottom: 15px;
+    }
+
+    .box_nota {
+        padding: 20px 20px;
+        margin-bottom: 10px;
+    }
+
+    /* Cerrar sesión */
+
+    #confirmacion_cierre {
+        width: 60%;
+    }
+}
+
+/* Surface Duo exception */
+
+@media (min-width: 540px) and (max-width: 720px) {
+
+    /* Main page */
+    
+    #ultimas_valoraciones {
+        grid-template-columns: 46% 46%;
+    }
+
+    .film_img {
+        height: 40vh;
+    }
+
+    /* Collection page */
+
+    .menu_inferior img {
+        max-width: 46px;
+    }
+
+    #portada {
+        height: 200px;
+        max-height: 200px;
+    }
+}
+
+/* Dispositivos grandes */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Loading page */
+
+    body #message_loading {
+        margin-bottom: 100px;
+        font-size: 22px;   
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    #box_dots {
+        gap: 8px;   
+    }
+
+    #text_logo {
+        width: 24%;
+    }
+
+    #logo_words {
+        width: 30%;
+        max-width: 400px;
+    }
+
+    /* Login page */
+
+    #logo_small {
+        width: 40%;
+    }
+
+    #formulario_login {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        width: 70vw;
+        min-height: 300px;
+    }
+
+    #formulario_login input {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    #formulario_login h3 {
+        font-size: 20px;
+    }
+
+    /* Main page */
+
+    #content_main {
+        padding: 30px 40px;
+    }
+
+    #saludo_inicio {
+        font-size: 26px;
+    }
+
+    #txt_ultimas {
+        font-size: 18px;
+    }
+
+    .icon_txt {
+        font-size: 18px;
+    }
+
+    #ultimas_valoraciones {
+        grid-template-columns: 30% 30% 30%;
+    }
+
+    .film_title {
+        font-size: 17px;
+    }
+
+    #logo_header {
+        width: 60px;
+        height: 60px;
+    }
+
+    #foto_perfil {
+        width: 56px;
+        height: 56px;
+    } 
+
+    #buscador {
+        height: 36px;
+        width: 78%;
+    }
+
+    .film_img h2 {
+        font-size: 25px;
+    }
+
+    /* Add page */
+
+    #titulo_add {
+        font-size: 26px;
+    }
+
+    #txt_vamos {
+        font-size: 18px;
+    }
+
+    #content_add {
+        padding: 40px 40px;
+    }
+
+    #formulario_pelicula label {
+        font-size: 16px;
+    }
+
+    #formulario_pelicula ::placeholder {
+        font-size: 14px;
+    }
+
+    #btn_guardar {
+        width: 30%;
+        height: 46px;
+    }
+
+    /* Collection page */
+
+    #content_collection {
+        padding: 40px 40px;
+    }
+
+    #titulo_biblioteca {
+        font-size: 26px;
+    }
+
+    #txt_magnifica {
+        font-size: 18px;
+    }
+
+    #num_peliculas {
+        font-size: 18px;
+    }
+
+    #portada {
+        height: 250px;
+        max-height: 250px;
+    }
+
+    .info_pelicula_guardada span, .info_pelicula_guardada p {
+        font-size: 18px;
+    }
+
+    .titulo_pelicula_guardada {
+        margin-bottom: 10px;
+        font-size: 20px !important;
+    }
+
+    .year_pelicula_guardada, .genero_pelicula_guardada, .pais_pelicula_guardada, .direccion_pelicula_guardada {
+        margin-bottom: 12px;
+    }
+
+    .separador_info {
+        margin-bottom: 15px;
+    }
+
+    .box_nota {
+        padding: 20px 20px;
+        margin-bottom: 10px;
+    }
+
+    .box_nota h2 {
+        font-size: 26px;
+    }
+
+    /* Cerrar sesión */
+
+    #confirmacion_cierre {
+        width: 60%;
+    }
+
+}
+
+/* Ipad Pro exception */
+
+@media (min-width: 1024px) and (min-height: 1366px) {
+
+    /* Main page */
+
+    #content_main {
+        padding-top: 60px;
+    }
+
+    .icon_txt {
+        font-size: 19px;
+    }
+
+    #ultimas_valoraciones {
+        grid-template-columns: 30% 30% 30%;
+    }
+
+    .film_title {
+        font-size: 20px;
+    }
+
+    #logo_header {
+        width: 80px;
+        height: 80px;
+    }
+
+    #foto_perfil {
+        width: 64px;
+        height: 64px;
+    } 
+
+    #header_blue {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    #buscador {
+        height: 42px;
+        width: 78%;
+    }
+
+    .film_img h2 {
+        margin-top: 0px;
+        font-size: 30px;
+    }
+
+    .menu_inferior img {
+        max-width: 62px;
+    }
+
+    /* Add page */
+
+    #txt_vamos {
+        margin-bottom: 30px;
+    }
+
+    #content_add {
+        padding: 70px 40px;
+    }
+
+    #formulario_pelicula label {
+        font-size: 18px;
+    }
+
+    #formulario_pelicula ::placeholder {
+        font-size: 16px;
+    }
+
+    #btn_guardar {
+        width: 30%;
+        height: 56px;
+        font-size: 16px;
+    }
+
+    /* Collection page */
+
+    #content_collection {
+        padding-top: 60px;
+    }
+
+    #txt_magnifica {
+        margin-bottom: 20px;
+    }
+
+    #num_peliculas {
+        font-size: 20px;
+    }
+
+    #portada {
+        height: 350px;
+        max-height: 350px;
+    }
+
+    .info_pelicula_guardada span, .info_pelicula_guardada p {
+        font-size: 22px;
+    }
+
+    .titulo_pelicula_guardada {
+        font-size: 24px !important;
+    }
+
+    .year_pelicula_guardada, .genero_pelicula_guardada, .pais_pelicula_guardada, .direccion_pelicula_guardada {
+        margin-bottom: 26px;
+    }
+
+    .separador_info {
+        margin-bottom: 25px;
+    }
+
+    .box_nota {
+        padding: 30px 30px;
+        margin-bottom: 20px;
+    }
+
+    .box_nota h2 {
+        font-size: 32px;
+    }
+
+    .delete_btn {
+        width: 85px;
+        height: 85px;
+    }
+
+    /* Cerrar sesión */
+
+    #confirmacion_cierre {
+        width: 60%;
+    }
+
+    #confirmacion_cierre h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    #confirmacion_cierre section div {
+        padding: 15px 30px;
+    }
+} 
+
+/* Dispositivos grandes en horizontal (tablets) */
+
+@media (min-width: 769px) and (max-width: 1024px) and (max-height: 600px) {
+
+    /* Loading page */
+    
+    #logo {
+        width: 16%;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    #box_dots {
+        margin-top: -10px;
+    }
+
+    #text_logo {
+        width: 14%;
+    }
+
+    /* Login page */
+
+    #logo_small {
+        width: 16%;
+        margin-top: 30px;
+    }
+
+    #content_login {
+        gap: 10px;
+    }
+
+    /* Main page */
+
+    .film_img {
+        height: 400px;
+    }
+
+    .film_img h2 {
+        font-size: 26px;
+        margin-top: 5px;
+    }
+
+    #buscador p {
+        font-size: 16px;
+    }
+
+    /* Collection page */
+
+    #portada {
+        height: 350px;
+        max-height: 350px;
+    }
+
+
+}
+
+/* Dispositivos muy grandes */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+/* Dispositivos muy grandes en horizontal (tablets) */
+
+@media (min-width: 1025px) and (max-width: 1280px) and (max-height: 800px) {
+
+    /* Loading page */
+
+    #logo {
+        width: 20%;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    body #message_loading {
+        margin-bottom: 100px;
+        font-size: 24px;
+    }
+
+    /* Login page */
+
+    #logo_small {
+        width: 30%;
+    }
+
+    #formulario_login {
+        width: 40vw;
+    }
+
+    #formulario_login h3 {
+        font-size: 20px;
+    }
+
+    /* Main page */
+
+    #saludo_inicio {
+        font-size: 24px;
+    }
+
+    #txt_ultimas {
+        font-size: 18px;
+    }
+
+    #ultimas_valoraciones {
+        grid-template-columns: 21% 21% 21% 21%;
+    }
+
+    .film_img {
+        height: 320px;
+    }
+
+    .film_img h2 {
+        font-size: 26px;
+        margin-top: 0px;
+    }
+
+    .film_title {
+        font-size: 16px;
+    }
+
+    /* Add page */
+
+    #titulo_add {
+        font-size: 24px;
+    }
+
+    #txt_vamos {
+        font-size: 18px;
+    }
+
+    #btn_guardar {
+        width: 24%;
+    }
+
+    /* Collection page */
+
+    #titulo_biblioteca {
+        font-size: 24px;
+    }
+
+    #txt_magnifica {
+        font-size: 18px;
+    }
+
+    #num_peliculas {
+        font-size: 18px;
+    }
+
+    #portada {
+        width: 14%;
+        height: 230px;
+        max-height: 230px;
+    }
+
+    .titulo_pelicula_guardada {
+        font-size: 18px;
+    }
+
+    .year_pelicula_guardada, .genero_pelicula_guardada, .direccion_pelicula_guardada, .pais_pelicula_guardada, span {
+        font-size: 16px;
+    }
+
+    .delete_btn {
+        width: 80px;
+        height: 80px;
+    }
+
+    .box_nota {
+        padding: 24px;
+    }
+
+    .box_nota h2 {
+        font-size: 24px;
+    }
+
+    #confirmacion_cierre {
+        width: 50%;
+    }
+
+    #foto_perfil {
+        width: 50px;
+        height: 50px;
+    }
+
+    #logo_header {
+        width: 60px;
+        height: 60px;
+    }
+
+    #buscador {
+        width: 84%;
+        height: 36px;
+    }
+}
+
+/* Dispositivos más grandes */
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+
+}
+
+/* Dispositivos más grandes en horizontal (tablets) */
+
+@media (min-width: 1281px) and (max-width: 1440px) and (max-height: 600px) {
+
+}
