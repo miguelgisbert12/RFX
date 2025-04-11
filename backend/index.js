@@ -1,44 +1,39 @@
 const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const routes = require('./routes');
-const path = require('path');
+const cors = require('cors');
 require('dotenv').config();
 
-// Instancia de Express
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../frontend')));
-
-// Rutas
-app.use('/api', routes);
+app.use(express.json());
 
 // Imágenes
-app.use("/uploads", express.static("uploads"));
+app.use('/uploads', express.static('uploads'));
 
-// Verificación del servidor
-app.get('/', (req, res) => {
-    res.send('Servidor funcionando');
+// Conexión a MongoDB
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('Conectado a MongoDB'))
+.catch(error => console.error('Error al conectar a MongoDB:', error.message));
+
+// Rutas
+const peliculasRoutes = require('./routes/peliculas');
+const authRoutes = require('./routes/auth');
+
+app.use('/api/peliculas', peliculasRoutes);
+app.use('/api/auth', authRoutes);
+
+// Manejo de errores global
+app.use((error, req, res, next) => {
+  console.error(error.message);
+  res.status(500).send('Error en el servidor');
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
-
-// Conectar a MongoDB antes de iniciar el servidor
-mongoose.connect('mongodb://localhost:27017/peliculasDB', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => {
-    console.log('Conectado a MongoDB');
-
-    const PORT = process.env.PORT || 5000; // Iniciar el servidor si hay buena conexión
-    app.listen(PORT, () => {
-        console.log(`Servidor corriendo en el puerto ${PORT}`);
-    });
-})
