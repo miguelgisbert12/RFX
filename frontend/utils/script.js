@@ -55,6 +55,7 @@ animacionCarga();
 // Formulario Login
 
 const formulario_login = document.getElementById('loginForm');
+const API_URL = 'https://localhost:5000/api';
 
 formulario_login.addEventListener("submit", function(event) {
 
@@ -66,7 +67,7 @@ formulario_login.addEventListener("submit", function(event) {
 
     console.log({ email, password });
 
-    fetch('http://localhost:5000/api/login', {
+    fetch(`${API_URL}/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

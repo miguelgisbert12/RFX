@@ -1,7 +1,13 @@
-const Usuario = require('./models/Usuario');
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const Usuario = require('../models/Usuario');
 
 // Ruta para iniciar sesión
 router.post('/login', async (req, res) => {
+    console.log('Received login request:', req.body);
+    
     try {
         const { email, password } = req.body;
 
@@ -24,10 +30,10 @@ router.post('/login', async (req, res) => {
 
         // Crear y enviar el token JWT
         const payload = {
-        usuario: {
-            id: usuario.id,
-            nombre: usuario.nombre
-        }
+            usuario: {
+                id: usuario.id,
+                nombre: usuario.nombre
+            }
         };
 
         jwt.sign(
@@ -35,8 +41,18 @@ router.post('/login', async (req, res) => {
             process.env.JWT_SECRET,
             { expiresIn: '1h' },
             (err, token) => {
-                if (err) throw err;
-                res.json({ token, usuario: { id: usuario.id, nombre: usuario.nombre } });
+                if (err) {
+                    console.error('Error al generar el token:', err);
+                    return res.status(500).json({ message: 'Error al generar el token' });
+                }
+                res.json({ 
+                    token,
+                    usuario: {
+                        id: usuario.id,
+                        nombre: usuario.nombre,
+                        email: usuario.email
+                    }
+                });
             }
         );
 
@@ -45,3 +61,17 @@ router.post('/login', async (req, res) => {
         res.status(500).send('Error del servidor');
     }
 });
+
+router.get('/verify', (req, res) => {
+    const token = req.header('x-auth-token');
+    if (!token) return res.status(401).json({ msg: 'No token, autorización denegada' });
+  
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      res.json({ userId: decoded.usuario.id, nombre: decoded.usuario.nombre });
+    } catch (err) {
+      res.status(400).json({ msg: 'Token no válido' });
+    }
+});
+
+module.exports = router;

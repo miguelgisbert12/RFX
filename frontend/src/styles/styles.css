@@ -84,13 +84,13 @@ p {
     width: 100%;
     height: 100vh;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .red_square {
     width: 100%;
     height: 40px;
     background-color: #E86161;
+    position: absolute;
 }
 
 .thin {
@@ -102,6 +102,7 @@ p {
     flex-direction: column;
     justify-content: center;
     gap: 50px;
+    height: 100vh;
 }
 
 #message_loading {
@@ -118,6 +119,7 @@ p {
 #logo {
     width: 40%;
     margin: auto;
+    margin-bottom: 0px;
     max-width: 280px;
 }
 
@@ -136,7 +138,7 @@ p {
     display: flex;
     gap: 5px;
     margin: auto;
-    
+    margin-top: 0px;
 }
 
 .dot {
@@ -158,7 +160,6 @@ p {
 }
 
 #login_page {
-    display: none;
     align-items: center;
 }
 
@@ -167,6 +168,15 @@ p {
     flex-direction: column;
     justify-content: center;
     gap: 70px;
+    height: 100vh;
+}
+
+.bottom_bar {
+    bottom: 0;
+}
+
+.fixed {
+    position: relative !important;
 }
 
 #logo_small {
@@ -377,6 +387,14 @@ header {
     border-radius: 10px;
 }
 
+#aviso_lista_vacia {
+    margin-top: 0px;
+}
+
+#aviso_lista_vacia.show {
+    display: flex;
+}
+
 .btns_redirect_add {
     margin-top: 20px;
     padding: 10px;
@@ -465,11 +483,11 @@ footer {
 /* Cerrar sesión */
 
 #confirmacion_cierre {
+    display: flex;
     position: fixed;
     width: 80%;
     height: fit-content;
     padding: 10px;
-    display: none;
     flex-direction: column;
     align-items: center;
     background-color: #f4f4f9;
@@ -523,7 +541,6 @@ footer {
 /* Add Page  ------------------------------------------------------- */
 
 #content_add {
-    display: none;
     margin-top: 90px;
     padding: 20px;
 }
@@ -564,7 +581,6 @@ footer {
 /* Colección Page  ------------------------------------------------------- */
 
 #content_collection {
-    display: none;
     margin-top: 100px;
     padding: 20px;
 }
@@ -756,7 +772,7 @@ footer {
     /* Login page */
 
     #logo_small {
-        width: 50%;
+        width: 40%;
     }
 
     #content_login {
@@ -766,9 +782,15 @@ footer {
     #formulario_login {
         width: 80%;
         margin: auto;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 
     /* Main page */
+
+    #aviso_lista_vacia img {
+        max-width: 30%;
+    }
 
     #ultimas_valoraciones {
         justify-content: space-around;
@@ -777,6 +799,19 @@ footer {
 
     .film_title {
         font-size: 13px;
+    }
+
+    #titulo_biblioteca {
+        font-size: 18px;
+    }
+
+    #txt_magnifica {
+        font-size: 14px;
+        padding-bottom: 10px;
+    }
+
+    #banner_aviso {
+        margin-top: 20px;
     }
 
     /* Collection page */

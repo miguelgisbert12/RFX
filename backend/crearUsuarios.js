@@ -12,19 +12,29 @@ const usuarios = [
     { nombre: "Álvaro", email: "alvaromartinez03@gmail.com", password: "333333" }
 ];
 
-const crearUsuarios = async () => {
+const resetearYCrearUsuarios = async () => {
     try {
+        // Borrar todos los usuarios existentes
+        await Usuario.deleteMany({});
+        console.log("Usuarios existentes eliminados");
+
+        // Crear nuevos usuarios
         for (let usuario of usuarios) {
             const salt = await bcrypt.genSalt(10);
             usuario.password = await bcrypt.hash(usuario.password, salt);
         }
         await Usuario.insertMany(usuarios);
-        console.log("Usuarios creados exitosamente");
+        console.log("Nuevos usuarios creados exitosamente");
+
+        // Verificar los usuarios creados
+        const usuariosCreados = await Usuario.find({}, 'nombre email');
+        console.log("Usuarios en la base de datos:", usuariosCreados);
+
     } catch (error) {
-        console.error("Error al crear usuarios:", error);
+        console.error("Error al resetear y crear usuarios:", error);
     } finally {
         mongoose.connection.close();
     }
 };
 
-crearUsuarios();
+resetearYCrearUsuarios();
