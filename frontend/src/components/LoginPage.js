@@ -3,21 +3,24 @@ import { useNavigate } from 'react-router';
 import logoSmall from '../images/logo_rfx.png';
 import logoWords from '../images/words_rfx.png';
 
+// Componente LoginPage para manejar el inicio de sesión de los usuarios
 function LoginPage({ onLoginSuccess }) {
+  // Manejar el email, la contraseña y el error de inicio de sesión
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
+  // URL de la API
   const API_URL = 'http://localhost:5000/api';
 
   // Limpiar formulario al iniciar la app o al cerrar sesión
-
   useEffect(() => {
     setEmail('');;
     setPassword('');
   }, []);
 
+  // Envío del formulario de inicio de sesión
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMessage('');
@@ -38,6 +41,7 @@ function LoginPage({ onLoginSuccess }) {
 
       if (response.ok) {
         if (data.token && data.usuario) {
+          // Guardar el token y los datos del usuario en el local storage
           localStorage.setItem('token', data.token);
           localStorage.setItem('usuarioId', data.usuario.id);
           localStorage.setItem('nombreUsuario', data.usuario.nombre);
@@ -63,6 +67,7 @@ function LoginPage({ onLoginSuccess }) {
           <img id="logo_small" src={logoSmall} alt="rateflix_logo" />
           <img id="logo_words" src={logoWords} alt="rateflix_words" />
         </div>
+        {/* Formulario de inicio de sesión */}
         <section id="formulario_login">
           <h3>INICIO DE SESIÓN</h3>
           <form onSubmit={handleSubmit}>
@@ -84,6 +89,7 @@ function LoginPage({ onLoginSuccess }) {
             />
             <button type="submit">ENTRAR</button>
           </form>
+          {/* Mensaje de error si no se consigue iniciar sesión */}
           {errorMessage && <p id="error_message" className="error">{errorMessage}</p>}
         </section>
       </div>

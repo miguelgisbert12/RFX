@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+// Componente para añadir o editar películas
 function ContentAdd({ addOrUpdateMovie, setActiveSection, editingMovie }) {
+
+  // Estado inicial para los datos de la película
   const [formData, setFormData] = useState({
     nombre: '',
     year: '',
@@ -11,6 +14,7 @@ function ContentAdd({ addOrUpdateMovie, setActiveSection, editingMovie }) {
     imagen: null
   });
 
+  // Cargar los datos de la película seleccionada para editar
   useEffect(() => {
     if (editingMovie) {
       setFormData({
@@ -37,6 +41,7 @@ function ContentAdd({ addOrUpdateMovie, setActiveSection, editingMovie }) {
     setActiveSection('collection');
   };
 
+  // Manejar los cambios que haya habido en los campos del formulario
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData(prevData => ({
@@ -51,11 +56,14 @@ function ContentAdd({ addOrUpdateMovie, setActiveSection, editingMovie }) {
       <p id="txt_vamos" className="negrita">¡Vamos a {editingMovie ? 'actualizar' : 'guardar'} en tu biblioteca!</p>
 
       <form id="formulario_pelicula" onSubmit={handleSubmit}>
+        {/* Campos del formulario */}
         <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" required />
         <input type="number" name="year" value={formData.year} onChange={handleChange} placeholder="Año" required />
         <input type="text" name="genero" value={formData.genero} onChange={handleChange} placeholder="Género" required />
         <input type="text" name="nacionalidad" value={formData.nacionalidad} onChange={handleChange} placeholder="País" required />
         <input type="text" name="direccion" value={formData.direccion} onChange={handleChange} placeholder="Director/a" required />
+
+        {/* Control deslizante para valorar la película */}
         <div className="valoracion-container">
           <label htmlFor="valoracion">Valoración: {formData.valoracion}</label>
           <input 
@@ -69,8 +77,11 @@ function ContentAdd({ addOrUpdateMovie, setActiveSection, editingMovie }) {
             required 
           />
         </div>
+
+        {/* Campo para subir una imagen */}
         <input id='image_file' type="file" name="imagen" onChange={handleChange} accept="image/*" required={!editingMovie} />
 
+        {/* Botón de envío (Actualizar o guardar la película) */}
         <button id="btn_guardar" type="submit">{editingMovie ? 'ACTUALIZAR' : 'GUARDAR'}</button>
       </form>
 

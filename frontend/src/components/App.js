@@ -5,6 +5,8 @@ import LoginPage from './LoginPage';
 import MainPage from './MainPage';
 
 function App() {
+
+  // Estados para manejar la carga de la página, la autenticación del usuario y la pantalla de carga inicial
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
@@ -21,9 +23,9 @@ function App() {
             }
           });
           if (response.ok) {
-            setIsLoggedIn(true);
+            setIsLoggedIn(true); // Si el token es válido, cambia isLoggedIn a "true"
           } else {
-            // Si el token no es válido, borra el localStorage y cambia isLoggedIn a false
+            // Si el token no es válido, borra el localStorage y cambia isLoggedIn a "false"
             handleLogout();
           }
         } catch (error) {
@@ -39,6 +41,7 @@ function App() {
     checkAuthStatus();
   }, []);
 
+  // Manejar el inicio de sesión exitoso
   const handleLoginSuccess = () => {
     setIsLoggedIn(true);
   };
@@ -58,6 +61,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Ruta general */}
         <Route 
           path="/" 
           element={
@@ -70,6 +74,7 @@ function App() {
             )
           } 
         />
+        {/* Ruta del login (inicio de sesión) */}
         <Route 
           path="/login" 
           element={
@@ -78,6 +83,7 @@ function App() {
             <LoginPage onLoginSuccess={handleLoginSuccess} />
           } 
         />
+        {/* Ruta de la página principal */}
         <Route 
           path="/pagina-principal" 
           element={

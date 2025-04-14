@@ -1,9 +1,14 @@
 import { useState } from 'react';
 
+
+// Hook personalizado para manejar las películas
 export function useMovies() {
+
+  // Almacenar todas las películas y la lista de películas recientes
   const [movies, setMovies] = useState([]);
   const [recentMovies, setRecentMovies] = useState([]);
 
+  // Cargar todas las películas del usuario
   const loadMovies = async () => {
     const userId = localStorage.getItem('usuarioId');
     const token = localStorage.getItem('token');
@@ -31,6 +36,7 @@ export function useMovies() {
     }
   };
 
+  // Cargar las últimas 6 películas del usuario
   const loadRecentMovies = async () => {
     const userId = localStorage.getItem('usuarioId');
     const token = localStorage.getItem('token');
@@ -54,6 +60,7 @@ export function useMovies() {
     }
   };
 
+  // Añadir una película a la biblioteca del usuario
   const addMovie = async (movieData) => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('usuarioId');
@@ -88,6 +95,7 @@ export function useMovies() {
     }
   };
 
+  // Actualizar una película existente
   const updateMovie = async (id, movieData) => {
     try {
       const token = localStorage.getItem('token');
@@ -113,6 +121,7 @@ export function useMovies() {
     }
   };
 
+  // Eliminar una película existente
   const deleteMovie = async (id) => {
     try {
       const token = localStorage.getItem('token');
@@ -134,5 +143,6 @@ export function useMovies() {
     }
   };
 
+  // Devuelve las funciones y estados para usarlos en otros componentes
   return { movies, recentMovies, loadMovies, loadRecentMovies, addMovie, updateMovie, deleteMovie };
 }

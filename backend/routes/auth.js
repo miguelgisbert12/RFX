@@ -11,7 +11,7 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        // Validar entrada
+        // Validar que se haya introducido un email y una contraseña (obligatorios)
         if (!email ||!password) {
             return res.status(400).json({ message: 'Debes proporcionar un email y contraseña' });
         }
@@ -22,13 +22,13 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'Credenciales inválidas' });
         }
 
-        // Verificar la contraseña
+        // Verificar la contraseña introducida
         const isMatch = await bcrypt.compare(password, usuario.password);
         if (!isMatch) {
             return res.status(400).json({ message: 'Credenciales inválidas' });
         }
 
-        // Crear y enviar el token JWT
+        // Crear y enviar el token JWT (con una duración de 1 hora): el usuario podrá acceder a los datos de la API
         const payload = {
             usuario: {
                 id: usuario.id,
@@ -62,6 +62,8 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+// Ruta para verificar el token JWT
 router.get('/verify', (req, res) => {
     const token = req.header('x-auth-token');
     if (!token) return res.status(401).json({ msg: 'No token, autorización denegada' });

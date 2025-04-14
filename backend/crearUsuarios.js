@@ -1,11 +1,14 @@
-// Ejecutar este script para crear los 3 usuarios en la base de datos
+// (Ejecutar este script para crear los 3 usuarios en la base de datos)
+
 const mongoose = require('mongoose');
 const Usuario = require('./models/Usuario');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
+// Conectar a MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
+// Datos de los usuarios (nombre, email y contraseña)
 const usuarios = [
     { nombre: "Federico", email: "federicogarcia01@gmail.com", password: "111111" },
     { nombre: "Rosa", email: "rosagutierrez02@gmail.com", password: "222222" },
@@ -18,7 +21,7 @@ const resetearYCrearUsuarios = async () => {
         await Usuario.deleteMany({});
         console.log("Usuarios existentes eliminados");
 
-        // Crear nuevos usuarios
+        // Crear los nuevos usuarios y encriptar las contraseñas
         for (let usuario of usuarios) {
             const salt = await bcrypt.genSalt(10);
             usuario.password = await bcrypt.hash(usuario.password, salt);
@@ -33,6 +36,7 @@ const resetearYCrearUsuarios = async () => {
     } catch (error) {
         console.error("Error al resetear y crear usuarios:", error);
     } finally {
+        // Cerrar la conexión con MongoDB
         mongoose.connection.close();
     }
 };

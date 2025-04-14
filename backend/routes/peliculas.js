@@ -6,7 +6,8 @@ const Pelicula = require('../models/Pelicula');
 const auth = require('../middleware/auth');
 const path = require('path');
 
-// Configurar almacenamiento de imágenes
+// Configurar el almacenamiento de imágenes
+// Cuando el usuario suba una imagen, se guardará en la carpeta "uploads" con un nombre único
 const storage = multer.diskStorage({
     destination: "./uploads/",
     filename: (req, file, cb) => {
@@ -16,7 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
-// Obtener todas las películas (con paginación)
+// Obtener todas las películas del usuario
 router.get('/:userId', auth, async (req, res) => {
     try {
         const { userId } = req.params;
@@ -65,7 +66,8 @@ router.post('/', auth, upload.single('imagen'), async (req, res) => {
         console.log('Campos faltantes:', { nombre, year, genero, nacionalidad, direccion, valoracion });
         return res.status(400).json({ message: 'Todos los campos son requeridos' });
       }
-  
+      
+      // Se crea una nueva película con los datos recibidos y el usuario autenticado
       const pelicula = new Pelicula({
         nombre,
         year,
@@ -89,11 +91,14 @@ router.post('/', auth, upload.single('imagen'), async (req, res) => {
 // Actualizar una película
 router.put('/:id', auth, upload.single('imagen'), async (req, res) => {
     try {
+
+      // Se busca la película a actualizar
       const pelicula = await Pelicula.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
       if (!pelicula) {
         return res.status(404).json({ message: 'Película no encontrada' });
       }
 
+      // Si se sube una imagen nueva, se elimina la anterior y se actualiza
       if (req.file) {
         if (pelicula.imagen) {
             fs.unlinkSync(`./uploads/${pelicula.imagen}`);
@@ -101,6 +106,7 @@ router.put('/:id', auth, upload.single('imagen'), async (req, res) => {
         pelicula.imagen = req.file.filename;
     }
 
+    // Se actualiza la película con los nuevos datos
     Object.assign(pelicula, req.body);
     await pelicula.save();
     res.json(pelicula);
@@ -118,7 +124,7 @@ try {
         return res.status(404).json({ message: 'Película no encontrada' });
     }
     
-    // Si la película tiene una imagen, elimínala
+    // Si la película tiene una imagen adjunta, se elimina de la carpeta "uploads" y de la base de datos
     if (pelicula.imagen) {
       const imagePath = path.join(__dirname, '..', 'uploads', pelicula.imagen);
       fs.unlink(imagePath, (err) => {
@@ -135,7 +141,7 @@ try {
 
 });
 
-// Mostrar películas recientes del usuario
+// Mostrar las 6 películas más recientes del usuario
 router.get('/recientes/:userId', auth, async (req, res) => {
   try {
     const { userId } = req.params;
@@ -146,7 +152,7 @@ router.get('/recientes/:userId', auth, async (req, res) => {
     }
 
     const peliculas = await Pelicula.find({ usuarioId: userId })
-      .sort({ createdAt: -1 })
+      .sort({ createdAt: -1 }) // Ordena las películas por fecha de creación, de más recientes a más antiguas
       .limit(6); // Obtiene las 6 películas más recientes
     res.json(peliculas);
   } catch (error) {

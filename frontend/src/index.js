@@ -5,8 +5,11 @@ import App from './components/App';
 
 const root = createRoot(document.getElementById('root'));
 
+// Renderización de la aplicación en root
 root.render(
-  <React.StrictMode>
+  // StrictMode detecta errores y problemas potenciales
+  <React.StrictMode> 
+    {/* Renderización del componente principal App */}
     <App />
   </React.StrictMode>
 );

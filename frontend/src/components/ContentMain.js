@@ -2,8 +2,11 @@ import React from 'react';
 import logoRfx from '../images/logo_rfx.png';
 import logoRfxEmpty from '../images/logo_rfx_empty.png';
 
+// Componente para el contenido de la página principal con las últimas valoraciones
 function ContentMain({ recentMovies, setActiveSection }) {
   const userName = localStorage.getItem("nombreUsuario") || "Usuario";
+
+  // Verificar si hay películas en la biblioteca
   const hasMovies = recentMovies.length > 0;
 
   return (
@@ -11,6 +14,8 @@ function ContentMain({ recentMovies, setActiveSection }) {
       <h2 id="saludo_inicio" className="red">Hola de nuevo, {userName}</h2>
       <p id="txt_ultimas" className="negrita">Tus últimas valoraciones</p>
 
+      {/* Esta sección aparece cuando la colección está vacía */}
+      {/* Ofrece al usuario la posibilidad de añadir nuevas películas mediante un link directo */}
       <section id="aviso_lista_vacia" className={`lista_vacia ${!hasMovies ? 'show' : ''}`}>
         <img src={logoRfx} alt="logo_rfx" />
         <section id="textos_avisos">
@@ -24,6 +29,7 @@ function ContentMain({ recentMovies, setActiveSection }) {
         </section>
       </section>
 
+      {/* Lista con las 6 últimas películas valoradas por el usuario */}  
       {hasMovies && (
         <ul id="ultimas_valoraciones">
           {recentMovies.map(movie => (
@@ -38,6 +44,7 @@ function ContentMain({ recentMovies, setActiveSection }) {
         </ul>
       )}
 
+      {/* Espacio en blanco al final de la colección para mejorar el scroll */}
       {hasMovies && <div id="blank_space_inicio" className="blank_space"></div>}
     </section>
   );

@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import textLogo from '../images/words_rfx.png';
 import logo from '../images/logo_rfx.png';
 
+// Componente LoadingPage con una pantalla de carga falsa (animación)
 function LoadingPage() {
+    // Manejar los mensajes de la pantalla de carga y los puntos en la animación
     const [messageIndex, setMessageIndex] = useState(0);
     const [activeDot, setActiveDot] = useState(-1);
     const navigate = useNavigate();
   
+    // Mensajes
     const messages = [
       "Cargando usuarios...",
       "Pintando portadas...",
@@ -29,7 +32,7 @@ function LoadingPage() {
         navigate('/login');
       }, 5000);
       
-  
+      // Cerrar intervalos al redirigir
       return () => {
         clearInterval(dotInterval);
         clearInterval(messageInterval);
@@ -42,6 +45,7 @@ function LoadingPage() {
         <div id="content">
           <img id="text_logo" src={textLogo} alt="rateflix_logo_text" />
           <img id="logo" src={logo} alt="rateflix_logo" />
+          {/* Puntos animados */}
           <div id="box_dots">
             {[0, 1, 2, 3].map((index) => (
               <div 
@@ -51,6 +55,7 @@ function LoadingPage() {
               ></div>
             ))}
           </div>
+          {/* Mensajes de carga */}
           <p id="message_loading">{messages[messageIndex]}</p>
         </div>
         <div className="red_square bottom_bar"></div>
