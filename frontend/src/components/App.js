@@ -7,6 +7,7 @@ import MainPage from './MainPage';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
     const checkAuthStatus = async () => {
@@ -47,15 +48,28 @@ function App() {
     localStorage.removeItem('usuarioId');
     localStorage.removeItem('nombreUsuario');
     setIsLoggedIn(false);
+    setIsInitialLoad(true);
   };
 
   if (isLoading) {
-    return <LoadingPage />;
+    return null;
   }
 
   return (
     <Router>
       <Routes>
+        <Route 
+          path="/" 
+          element={
+            isInitialLoad ? (
+              <LoadingPage onLoadingComplete={() => setIsInitialLoad(false)} />
+            ) : (
+              isLoggedIn ? 
+              <Navigate to="/pagina-principal" replace /> : 
+              <Navigate to="/login" replace />
+            )
+          } 
+        />
         <Route 
           path="/login" 
           element={
@@ -69,15 +83,7 @@ function App() {
           element={
             isLoggedIn ? 
             <MainPage onLogout={handleLogout} /> : 
-            <Navigate to="/login" replace />
-          } 
-        />
-         <Route 
-          path="/" 
-          element={
-            isLoggedIn ? 
-            <Navigate to="/pagina-principal" replace /> : 
-            <Navigate to="/login" replace />
+            <Navigate to="/" replace />
           } 
         />
       </Routes>

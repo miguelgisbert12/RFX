@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import textLogo from '../images/words_rfx.png';
 import logo from '../images/logo_rfx.png';
 
 function LoadingPage() {
     const [messageIndex, setMessageIndex] = useState(0);
     const [activeDot, setActiveDot] = useState(-1);
+    const navigate = useNavigate();
   
     const messages = [
       "Cargando usuarios...",
@@ -21,6 +23,12 @@ function LoadingPage() {
       const messageInterval = setInterval(() => {
         setMessageIndex((prevIndex) => (prevIndex >= 3 ? 3 : prevIndex + 1));
       }, 1000);
+
+      // Redirigir a login después de 5 segundos de carga
+      const loadingTimer = setTimeout(() => {
+        navigate('/login');
+      }, 5000);
+      
   
       return () => {
         clearInterval(dotInterval);
