@@ -10,7 +10,8 @@ import { useMovies } from '../hooks/useMovies';
 function MainPage() {
   const [activeSection, setActiveSection] = useState('main');
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [editingMovie, setEditingMovie] = useState(null); //new
+  const [editingMovie, setEditingMovie] = useState(null);
+  const [barPosition, setBarPosition] = useState('4%');
   const { movies, recentMovies, loadMovies, loadRecentMovies, addMovie, updateMovie, deleteMovie } = useMovies();
 
   useEffect(() => {
@@ -39,7 +40,6 @@ function MainPage() {
   };
 
   const handleLogout = () => {
-    // Implementar lógica de cierre de sesión
     window.location.href = "/";
   };
 

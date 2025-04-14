@@ -683,17 +683,52 @@ footer {
 
     /* Loading page */
 
+    #content_login {
+        gap: 40px;
+    }
+
+    #logos_login {
+        gap: 10px;
+    }
+
+    #logo_small {
+        width: 40%;
+        max-width: 120px;
+    }
+
+    #logo_words {
+        width: 60%;
+        max-width: 180px;
+    }
+
     body #message_loading {
         font-size: 12px;
     }
 
     #formulario_login {
-        width: 80%;
-        margin: auto;
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    #formulario_login h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    #formulario_login input {
+        width: 90%;
+        padding: 8px;
+        margin: 6px 0px;
     }
 
     #formulario_login button {
         width: 90%;
+        margin-top: 20px;
+    }
+
+    .blank_space {
+        height: 100px;
     }
 
     /* Main page */
@@ -721,6 +756,10 @@ footer {
 
     #buscador {
         width: 64%;
+    }
+
+    #aviso_lista_vacia img {
+        max-width: 40%;
     }
 
     /* Collection page */
@@ -843,7 +882,51 @@ footer {
     /* Login page */
 
     #formulario_login {
-        width: 60vw;
+        width: 70%;
+        max-width: 500px;
+        padding: 30px;
+        margin: 0 auto;
+    }
+
+    #formulario_login h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    #formulario_login input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    #formulario_login button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 30px;
+        font-size: 18px;
+    }
+
+    .error {
+        font-size: 16px;
+    }
+
+    #content_login {
+        gap: 80px;
+    }
+
+    #logos_login {
+        gap: 20px;
+    }
+
+    #logo_small {
+        width: 30%;
+        max-width: 180px;
+    }
+
+    #logo_words {
+        width: 50%;
+        max-width: 300px;
     }
 
     /* Main page */
@@ -970,6 +1053,39 @@ footer {
 
 @media (min-width: 540px) and (max-width: 720px) {
 
+    /* Login page */
+
+    #content_login {
+        gap: 10px;
+    }
+
+    #logo_small {
+        width: 30%;
+    }
+
+    #logo_words {
+        width: 40%;
+    }
+
+    #formulario_login {
+        width: 70%;
+        max-width: 500px;
+        padding: 30px;
+        margin: 0 auto;
+    }
+
+    #formulario_login h3 {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    #formulario_login input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
     /* Main page */
     
     #ultimas_valoraciones {
@@ -1024,23 +1140,30 @@ footer {
     /* Login page */
 
     #logo_small {
-        width: 40%;
+        width: 25%;
+        max-width: 200px;
     }
 
     #formulario_login {
         padding-top: 60px;
         padding-bottom: 60px;
-        width: 70vw;
+        width: 70%;
+        margin: 0 auto;
         min-height: 300px;
     }
 
     #formulario_login input {
-        width: 80%;
-        max-width: 300px;
+        width: 90%;
+        max-width: 500px;
     }
 
     #formulario_login h3 {
         font-size: 20px;
+    }
+
+    #formulario_login button {
+        width: 90%;
+        max-width: 400px;
     }
 
     /* Main page */
@@ -1175,6 +1298,35 @@ footer {
 /* Ipad Pro exception */
 
 @media (min-width: 1024px) and (min-height: 1366px) {
+
+    /* Login page */
+
+    #logo_small {
+        width: 30%;
+        max-width: 300px;
+    }
+
+    #formulario_login {
+        padding-top: 120px;
+        padding-bottom: 120px;
+        width: 70%;
+        margin: 0 auto;
+        min-height: 400px;
+    }
+
+    #formulario_login input {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    #formulario_login h3 {
+        font-size: 24px;
+    }
+
+    #formulario_login button {
+        width: 90%;
+        max-width: 600px;
+    }
 
     /* Main page */
 
@@ -1338,8 +1490,22 @@ footer {
     /* Login page */
 
     #logo_small {
-        width: 16%;
+        width: 12%;
         margin-top: 30px;
+    }
+
+    #logo_words {
+        width: 20%;
+        max-width: 300px;
+    }
+
+    #formulario_login {
+        padding-top: 20px;
+    }
+
+    #formulario_login input {
+        width: 90%;
+        max-width: 400px;
     }
 
     #content_login {
@@ -1400,11 +1566,17 @@ footer {
     /* Login page */
 
     #logo_small {
-        width: 30%;
+        width: 15%;
+    }
+
+    #logo_words {
+        width: 20%;
+        max-width: 400px;
     }
 
     #formulario_login {
         width: 40vw;
+        margin: 0 auto;
     }
 
     #formulario_login h3 {

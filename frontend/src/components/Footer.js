@@ -5,11 +5,25 @@ import collectionIcon from '../images/coleccion.png';
 import logoutIcon from '../images/cerrar_sesion.png';
 
 function Footer({ activeSection, setActiveSection, setShowConfirmation }) {
+
+  const getBarPosition = () => {
+    switch(activeSection) {
+      case 'main':
+        return '4%';
+      case 'add':
+        return '30%';
+      case 'collection':
+        return '55%';
+      default:
+        return '4%';
+    }
+  };
+
   return (
     <footer>
       <div id="decoration_bar"></div>
       <div id="select_bar">
-        <div id="moving_bar"></div>
+        <div id="moving_bar" style={{ marginLeft: getBarPosition() }}></div>
       </div>
       <div id="footer_blue">
         <div id="icono_inicio" className="menu_inferior" onClick={() => setActiveSection('main')}>
