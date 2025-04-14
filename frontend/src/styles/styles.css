@@ -391,6 +391,17 @@ header {
     margin-top: 0px;
 }
 
+#aviso_lista_vacia img {
+    width: 50%;
+    max-width: 350px;
+}
+
+#textos_avisos {
+    position: absolute;
+    right: 5%;
+    bottom: 25%;
+}
+
 #aviso_lista_vacia.show {
     display: flex;
 }
@@ -541,7 +552,7 @@ footer {
 /* Add Page  ------------------------------------------------------- */
 
 #content_add {
-    margin-top: 90px;
+    margin-top: 110px;
     padding: 20px;
 }
 
@@ -576,6 +587,57 @@ footer {
     border-radius: 5px;
     height: 40px;
     font-weight: 600;
+}
+
+#image_file {
+    border-bottom: none !important;
+}
+
+.valoracion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+  
+.valoracion-container label {
+    margin-bottom: 10px;
+}
+  
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100% !important;
+    align-self: baseline;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    
+}
+  
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #E86161;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #E86161;
+    cursor: pointer;
 }
 
 /* Colección Page  ------------------------------------------------------- */
@@ -758,10 +820,6 @@ footer {
         width: 64%;
     }
 
-    #aviso_lista_vacia img {
-        max-width: 40%;
-    }
-
     /* Collection page */
 
     #portada {
@@ -826,10 +884,6 @@ footer {
     }
 
     /* Main page */
-
-    #aviso_lista_vacia img {
-        max-width: 30%;
-    }
 
     #ultimas_valoraciones {
         justify-content: space-around;
@@ -968,6 +1022,11 @@ footer {
     #buscador {
         height: 36px;
         width: 78%;
+    }
+
+    #textos_avisos {
+        align-self: flex-end;
+        justify-self: flex-end;
     }
 
     /* Add page */
@@ -1211,6 +1270,14 @@ footer {
         font-size: 25px;
     }
 
+    #banner_aviso, #btn_vamos {
+        padding: 20px;
+    }
+
+    #banner_aviso p, #btn_vamos h3 {
+        font-size: 20px;
+    }
+
     /* Add page */
 
     #titulo_add {
@@ -1375,6 +1442,14 @@ footer {
         max-width: 62px;
     }
 
+    #banner_aviso, #btn_vamos {
+        padding: 20px;
+    }
+
+    #banner_aviso p, #btn_vamos h3 {
+        font-size: 20px;
+    }
+
     /* Add page */
 
     #txt_vamos {
@@ -1523,6 +1598,18 @@ footer {
         margin-top: 5px;
     }
 
+    /* Add page */
+
+    #formulario_pelicula {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #formulario_pelicula input, .valoracion-container {
+        width: 48%;
+    }
+
     #buscador p {
         font-size: 16px;
     }
@@ -1624,6 +1711,16 @@ footer {
         width: 24%;
     }
 
+    #formulario_pelicula {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #formulario_pelicula input, .valoracion-container {
+        width: 48%;
+    }
+
     /* Collection page */
 
     #titulo_biblioteca {
@@ -1639,9 +1736,13 @@ footer {
     }
 
     #portada {
-        width: 14%;
+        width: 16%;
         height: 230px;
         max-height: 230px;
+    }
+
+    .pelicula_guardada {
+        width: 85%;
     }
 
     .titulo_pelicula_guardada {
@@ -1650,6 +1751,7 @@ footer {
 
     .year_pelicula_guardada, .genero_pelicula_guardada, .direccion_pelicula_guardada, .pais_pelicula_guardada, span {
         font-size: 16px;
+        margin-bottom: 8px;
     }
 
     .delete_btn {

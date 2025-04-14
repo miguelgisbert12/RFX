@@ -7,7 +7,7 @@ function ContentAdd({ addOrUpdateMovie, setActiveSection, editingMovie }) {
     genero: '',
     nacionalidad: '',
     direccion: '',
-    valoracion: '',
+    valoracion: '5',
     imagen: null
   });
 
@@ -56,8 +56,20 @@ function ContentAdd({ addOrUpdateMovie, setActiveSection, editingMovie }) {
         <input type="text" name="genero" value={formData.genero} onChange={handleChange} placeholder="Género" required />
         <input type="text" name="nacionalidad" value={formData.nacionalidad} onChange={handleChange} placeholder="País" required />
         <input type="text" name="direccion" value={formData.direccion} onChange={handleChange} placeholder="Director/a" required />
-        <input type="number" name="valoracion" value={formData.valoracion} onChange={handleChange} placeholder="Valoración (1-10)" min="1" max="10" required />
-        <input type="file" name="imagen" onChange={handleChange} accept="image/*" required={!editingMovie} />
+        <div className="valoracion-container">
+          <label htmlFor="valoracion">Valoración: {formData.valoracion}</label>
+          <input 
+            type="range" 
+            id="valoracion"
+            name="valoracion" 
+            min="1" 
+            max="10" 
+            value={formData.valoracion} 
+            onChange={handleChange} 
+            required 
+          />
+        </div>
+        <input id='image_file' type="file" name="imagen" onChange={handleChange} accept="image/*" required={!editingMovie} />
 
         <button id="btn_guardar" type="submit">{editingMovie ? 'ACTUALIZAR' : 'GUARDAR'}</button>
       </form>
