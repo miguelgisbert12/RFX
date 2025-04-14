@@ -12,7 +12,7 @@ function LoginPage({ onLoginSuccess }) {
   const navigate = useNavigate();
 
   // URL de la API
-  const API_URL = 'http://localhost:5000/api';
+  const API_URL =  process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
   // Limpiar formulario al iniciar la app o al cerrar sesión
   useEffect(() => {

@@ -6,6 +6,7 @@ import logoutIcon from '../images/cerrar_sesion.png';
 
 // Componente para el footer de la app
 // Contiene un menú de opciones para navegar en la app y un botón para cerrar sesión
+// Se utilizó IA como soporte para simular la interacción del usuario con el menú inferior, generando eventos de click en los botones y cambiando la sección activa según el botón pulsado
 function Footer({ activeSection, setActiveSection, setShowConfirmation }) {
 
   // Determinar la posición de la barra del menú según la sección activa

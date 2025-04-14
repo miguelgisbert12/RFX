@@ -1,0 +1,15 @@
+# Configuración para Netlify
+# Configuración sugerida por IA para subir la app a Netlify (frontend)
+
+# Configuración de build, para construir el proyecto
+
+[build]
+  command = "npm run build"
+  publish = "build"
+
+# Configuración de las redirecciones
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

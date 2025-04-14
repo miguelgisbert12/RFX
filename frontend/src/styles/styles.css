@@ -593,6 +593,9 @@ footer {
     border-bottom: none !important;
 }
 
+/* Input type range, para añadir las valoraciones */
+/* Se utilizó IA para realizar los styles correspondientes al input range */
+
 .valoracion-container {
     display: flex;
     flex-direction: column;

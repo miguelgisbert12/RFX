@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const API_URL =  process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
 
 // Hook personalizado para manejar las películas
 export function useMovies() {
@@ -19,7 +21,7 @@ export function useMovies() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/peliculas/${userId}`, {
+      const response = await fetch(`${API_URL}/peliculas/${userId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -45,7 +47,7 @@ export function useMovies() {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/api/peliculas/recientes/${userId}`, {
+      const response = await fetch(`${API_URL}/peliculas/recientes/${userId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -74,7 +76,7 @@ export function useMovies() {
     console.log('Datos de la película a enviar:', Object.fromEntries(movieData));
 
     try {
-      const response = await fetch('http://localhost:5000/api/peliculas', {
+      const response = await fetch(`${API_URL}/peliculas`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -99,7 +101,7 @@ export function useMovies() {
   const updateMovie = async (id, movieData) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/peliculas/${id}`, {
+      const response = await fetch(`${API_URL}/peliculas/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -125,7 +127,7 @@ export function useMovies() {
   const deleteMovie = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/peliculas/${id}`, {
+      const response = await fetch(`${API_URL}/peliculas/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
