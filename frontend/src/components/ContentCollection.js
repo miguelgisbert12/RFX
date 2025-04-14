@@ -2,6 +2,8 @@ import React from 'react';
 import logoRfx from '../images/logo_rfx.png';
 import triangleIcon from '../images/triangle.png';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 // Componente para mostrar la lista de películas en la biblioteca del usuario
 function ContentCollection({ movies, deleteMovie, editMovie, setActiveSection }) {
   const hasMovies = movies.length > 0;
@@ -41,7 +43,7 @@ function ContentCollection({ movies, deleteMovie, editMovie, setActiveSection })
             <li key={movie._id} onClick={() => editMovie(movie)} className="pelicula_guardada">
 
               {/* Imagen de la película (portada) */}
-              <img id="portada" src={`http://localhost:5000/uploads/${movie.imagen}`} alt="portada" />
+              <img id="portada" src={`${API_URL}/uploads/${movie.imagen}`} alt="portada" />
               <section className="info_pelicula_guardada">
                 {/* Título y valoración */}
                 <div className="flex_box">

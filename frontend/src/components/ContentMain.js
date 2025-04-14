@@ -2,6 +2,8 @@ import React from 'react';
 import logoRfx from '../images/logo_rfx.png';
 import logoRfxEmpty from '../images/logo_rfx_empty.png';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 // Componente para el contenido de la página principal con las últimas valoraciones
 function ContentMain({ recentMovies, setActiveSection }) {
   const userName = localStorage.getItem("nombreUsuario") || "Usuario";
@@ -34,7 +36,7 @@ function ContentMain({ recentMovies, setActiveSection }) {
         <ul id="ultimas_valoraciones">
           {recentMovies.map(movie => (
             <li key={movie._id} className="pelicula">
-              <div className="film_img" style={{backgroundImage: `url('http://localhost:5000/uploads/${movie.imagen}')`}}>
+              <div className="film_img" style={{backgroundImage: `url('${API_URL}/uploads/${movie.imagen}')`}}>
                 <img src={logoRfxEmpty} alt="logo_empty" />
                 <h2 className="red">{movie.valoracion}</h2>
               </div>

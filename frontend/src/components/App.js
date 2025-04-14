@@ -4,6 +4,8 @@ import LoadingPage from './LoadingPage';
 import LoginPage from './LoginPage';
 import MainPage from './MainPage';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 function App() {
 
   // Estados para manejar la carga de la página, la autenticación del usuario y la pantalla de carga inicial
@@ -17,7 +19,7 @@ function App() {
       if (token) {
         try {
           // Solicitud al servidor para verificar el token
-          const response = await fetch('http://localhost:5000/api/auth/verify', {
+          const response = await fetch(`${API_URL}/api/auth/verify`, {
             headers: {
               'Authorization': `Bearer ${token}`
             }
