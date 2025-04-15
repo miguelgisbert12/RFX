@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -14,7 +15,11 @@ app.use(cors({
 app.use(express.json());
 
 // Permitir la carga de archivos estáticos (imágenes)
-app.use('/uploads', express.static('uploads'));
+const uploadsPath = path.join(__dirname, 'uploads');
+app.use('/uploads', (req, res, next) => {
+  console.log('Solicitud de imagen:', req.url);
+  next();
+}, express.static(uploadsPath));
 
 app.get('/', (req, res) => {
   res.send('El backend de Rateflix está funcionando');
@@ -55,6 +60,13 @@ app.use((error, req, res, next) => {
   console.error(error.message);
   res.status(500).send('Error en el servidor');
 });
+
+// Verificar la carpeta 'uploads' y crearla si no existe
+const fs = require('fs');
+if (!fs.existsSync(uploadsPath)) {
+  console.warn(`La carpeta 'uploads' no existe en ${uploadsPath}. Creándola...`);
+  fs.mkdirSync(uploadsPath);
+}
 
 // Iniciar el servidor
 app.listen(PORT, '0.0.0.0', () => {
