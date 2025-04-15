@@ -11,7 +11,8 @@ const path = require('path');
 const storage = multer.diskStorage({
     destination: "./uploads/",
     filename: (req, file, cb) => {
-        cb(null, Date.now() + "-" + file.originalname);
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
     }
 });
 
@@ -33,9 +34,19 @@ router.get('/:userId', auth, async (req, res) => {
 
         const total = await Pelicula.countDocuments({ usuarioId: userId });
         const peliculas = await Pelicula.find({ usuarioId: userId })
-                                        .sort({ createdAt: -1 })
-                                        .limit(limit)
-                                        .skip(startIndex);
+          .sort({ createdAt: -1 })
+          .limit(limit)
+          .skip(startIndex);
+        
+        peliculas.forEach(pelicula => {
+          if (pelicula.imagen) {
+            const imagePath = path.join(__dirname, '..', 'uploads', pelicula.imagen);
+            console.log(`Verificando imagen para película ${pelicula._id}: ${imagePath}`);
+            fs.access(imagePath, fs.constants.F_OK, (err) => {
+              console.log(err ? `La imagen no existe: ${pelicula.imagen}` : `La imagen existe: ${pelicula.imagen}`);
+            });
+          }
+        });
 
         res.json({
             peliculas,
