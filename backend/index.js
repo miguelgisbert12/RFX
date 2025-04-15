@@ -16,6 +16,10 @@ app.use(express.json());
 // Permitir la carga de archivos estáticos (imágenes)
 app.use('/uploads', express.static('uploads'));
 
+app.get('/', (req, res) => {
+  res.send('El backend de Rateflix está funcionando');
+});
+
 // Conexión con MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -53,6 +57,6 @@ app.use((error, req, res, next) => {
 });
 
 // Iniciar el servidor
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
