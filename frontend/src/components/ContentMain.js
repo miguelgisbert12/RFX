@@ -36,7 +36,7 @@ function ContentMain({ recentMovies, setActiveSection }) {
         <ul id="ultimas_valoraciones">
           {recentMovies.map(movie => (
             <li key={movie._id} className="pelicula">
-              <div className="film_img" style={{backgroundImage: `url('${API_URL}/uploads/${movie.imagen}')`}}>
+              <div className="film_img" style={{backgroundImage: `url('${API_URL.replace('/api', '')}/uploads/${movie.imagen}')`}}>
                 <img src={logoRfxEmpty} alt="logo_empty" />
                 <h2 className="red">{movie.valoracion}</h2>
               </div>

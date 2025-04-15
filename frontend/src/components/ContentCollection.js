@@ -43,7 +43,7 @@ function ContentCollection({ movies, deleteMovie, editMovie, setActiveSection })
             <li key={movie._id} onClick={() => editMovie(movie)} className="pelicula_guardada">
 
               {/* Imagen de la película (portada) */}
-              <img id="portada" src={`${API_URL}/uploads/${movie.imagen}`} alt="portada" />
+              <img id="portada" src={`${API_URL.replace('/api', '')}/uploads/${movie.imagen}`} alt="portada" />
               <section className="info_pelicula_guardada">
                 {/* Título y valoración */}
                 <div className="flex_box">
